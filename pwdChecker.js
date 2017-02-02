@@ -34,23 +34,24 @@ function main() {
 // uLength = {
 //      valid: false,
 //      reason: "asdasdsa"
-
-//}
+// }
 
 //uLength.valid === false
 //uLength.stupidShit -> 420
 //uLength.reason -> "You do not" etc
 
+
+
+//username length checker
 function usernameLength(user) {
-    if(user.length<6){
-      return{
-        valid:false,
-        reason: "You do not have enough characters.",
-        stupidShit: 420
+    if(user.length<6){ //checks if the username is longer than 6 chars
+      return{ //if > 6, return JSON object with vars...
+        valid:false, //value
+        reason: "Your username does not have enough characters." //reason
       }
-    } else{
-      return {
-        valid: true
+    } else{ //if the username length is greater than 6
+      return { //return JSON object with var...
+        valid: true //valid
       }
     }
 }
@@ -58,10 +59,10 @@ function usernameLength(user) {
 //password length checker
 
 function passwordLength(pwd) {
-    if(pwd.length<6){
+    if(pwd.length<6){ //checks if the password is longer than 6 chars
       return{
         valid:false,
-        reason: "You do not have enough characters."
+        reason: "Your password does not have enough characters."
       }
     } else{
       return {
@@ -71,8 +72,6 @@ function passwordLength(pwd) {
 }
 
 //same username and password checker
-
-
 function sameChecker(user, pwd) {
     if(user===pwd){
       return{
@@ -135,9 +134,10 @@ function main() {
   //If there are any invalid things, notify the user
   //If not, only notify them at the end that everything went ok
 
-  var u = prompt("please enter username.")
-  var p = prompt("please enter password.")
+  var u = prompt("please enter username.") //prompt the user for a username
+  var p = prompt("please enter password.") //prompt the user for a password
 
+  //each of these runs a checker function and returns the JSON into its own var
   var uLength = usernameLength(u);
   var uSymbol = usernameSymbol(u);
   var pLength = passwordLength(p);
@@ -145,9 +145,9 @@ function main() {
   var pSame = passwordSame(p);
   var sChecker = sameChecker(u, p);
 
-  var allGood = true;
+  var allGood = true; //represents if all the checkers return valid === true
 
-  if(uLength.valid===false){
+  if(uLength.valid===false){ //if usernameL
     console.log(uLength.reason)
     allGood=false;
   }
